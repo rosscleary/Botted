@@ -1,0 +1,28 @@
+#submitForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+#textField {
+  display: flex;
+  justify-content: space-between;
+  border: 10px solid #888;
+  border-color: green;
+  width: 600px;
+  height: 150px;
+}
+
+#submitButton {
+  background-color: orange;
+  color: black;
+  padding: 5px;
+  justify-content: left;
+  width: 5%;
+}
+
+#textArea {
+  padding-bottom: 10px;
+}

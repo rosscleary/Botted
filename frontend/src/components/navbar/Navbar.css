@@ -1,0 +1,19 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background: red;
+}
+
+.logo {
+  font-size: 50px;
+  font-weight: bold;
+  color: cyan;
+}
+
+a {
+  text-decoration: none;
+}
+
+#logoutButton {
+  background-color: orange;
+}

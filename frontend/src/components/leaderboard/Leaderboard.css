@@ -1,0 +1,10 @@
+th,
+td {
+  text-align: left;
+  padding: 6px;
+  border: 1px solid #ccc;
+}
+
+table {
+  width: 50%;
+}
