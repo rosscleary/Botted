@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useToken from "../../useToken";
 import "./Navbar.css";
+import { Button } from "@mui/material";
 
 const Navbar = () => {
   const { setToken, getToken } = useToken();
@@ -42,15 +43,23 @@ const Navbar = () => {
           <span className="logo">Botted</span>
         </Link>
       </div>
-      <div>
-        {!getToken() && <Link to="/login">Login </Link>}
-        {!getToken() && <Link to="/register">Register</Link>}
-        {getToken() && <p> {username} </p>}
+      <div className="buttons">
+        {!getToken() && (
+          <Button id="login" href="/login">
+            Login{" "}
+          </Button>
+        )}
+        {!getToken() && (
+          <Button id="register" href="/register" variant="contained">
+            Register
+          </Button>
+        )}
+        {getToken() && <span className="username"> {username} </span>}
         {getToken() && (
-          <button id="logoutButton" onClick={logout}>
+          <Button id="logoutButton" onClick={logout}>
             {" "}
             Logout{" "}
-          </button>
+          </Button>
         )}
       </div>
     </div>

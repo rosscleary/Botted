@@ -3,6 +3,7 @@ import axios from "axios";
 import useToken from "../../useToken";
 import { Version } from "../../../../backend/src/models/version.model";
 import "./SubmitBot.css";
+import { Button } from "@mui/material"
 
 interface leaderboardProps {
   name: string;
@@ -94,10 +95,9 @@ const SubmitBot = ({ name }: leaderboardProps) => {
           ></textarea>
         )}
       </div>
-
-      <button id="submitButton">
-        {botCode ? "Update Bot Code" : "Submit Bot"}
-      </button>
+      <Button id="submitButton" variant="contained">
+        {botCode ? "Update Bot" : "Submit Bot"}
+      </Button>
     </form>
   );
 };

@@ -1,6 +1,8 @@
 import SubmitBot from "../submitbot/SubmitBot";
 import Leaderboard from "../leaderboard/Leaderboard";
 import useToken from "../../useToken";
+import Pagetitle from "../pagetitle/Pagetitle";
+import "./GamePage.css";
 
 interface gameProps {
   name: string;
@@ -12,10 +14,11 @@ const Game = ({ name, description }: gameProps) => {
 
   return (
     <div>
-      <h1>{name}</h1>
-      <h2>{description}</h2>
-      {getToken() && <SubmitBot name="tictactoe" />}
-      <Leaderboard name="tictactoe" />
+      <Pagetitle title={name} desc={description} />
+      <div className="gamePage">
+        {getToken() && <SubmitBot name="tictactoe" />}
+        <Leaderboard name="tictactoe" />
+      </div>
     </div>
   );
 };

@@ -1,13 +1,31 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  background: red;
+  background: black;
+  padding: 10px;
+  margin: -10px;
 }
 
 .logo {
   font-size: 50px;
   font-weight: bold;
-  color: cyan;
+  color: white;
+}
+
+.buttons {
+  align-self: center;
+}
+
+.username {
+  color: white;
+}
+
+#login {
+  color: white;
+}
+
+#register {
+  background-color: orange;
 }
 
 a {
@@ -16,4 +34,5 @@ a {
 
 #logoutButton {
   background-color: orange;
+  color: white;
 }

@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import Pagetitle from "../components/pagetitle/Pagetitle";
 
 const Home = () => {
   return (
-    <>
-      <h1>Home Page</h1>
+    <div className="home">
+      <Pagetitle title="Games" desc=""/>
       <Link to="/tictactoe">Tic-Tac-Toe</Link>
-    </>
+    </div>
   );
 };
 
