@@ -24,15 +24,10 @@
   color: white;
 }
 
-#register {
-  background-color: orange;
-}
-
 a {
   text-decoration: none;
 }
 
 #logoutButton {
-  background-color: orange;
   color: white;
 }

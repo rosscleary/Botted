@@ -40,7 +40,7 @@ const Navbar = () => {
     <div className="navbar">
       <div>
         <Link to="/">
-          <span className="logo">Botted</span>
+          <span className="logo">botted</span>
         </Link>
       </div>
       <div className="buttons">
@@ -56,7 +56,7 @@ const Navbar = () => {
         )}
         {getToken() && <span className="username"> {username} </span>}
         {getToken() && (
-          <Button id="logoutButton" onClick={logout}>
+          <Button id="logoutButton" variant="contained" onClick={logout}>
             {" "}
             Logout{" "}
           </Button>
