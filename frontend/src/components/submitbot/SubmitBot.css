@@ -10,13 +10,27 @@
 #textField {
   display: flex;
   justify-content: space-between;
-  border: 10px solid #888;
-  border-color: green;
-  width: 600px;
-  height: 150px;
+  border: 1px solid #888;
+  border-color: #707070;
+  width: 650px;
+  height: 510px;
+  resize: none;
+  outline: none;
+}
+
+#lineCounter {
+  text-align: right;
+  box-shadow: none;
+  color: #707070;
+  border-color: #707070;
+  background-color: #d8d8d8;
+  width: 3.5rem;
+  resize: none;
+  outline: none;
 }
 
 #textArea {
+  display: flex;
   padding-bottom: 10px;
 }
 

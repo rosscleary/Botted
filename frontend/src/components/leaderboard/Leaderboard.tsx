@@ -32,20 +32,23 @@ const Leaderboard = ({ name }: leaderboardProps) => {
   }, []);
 
   return (
-    <table>
-      <tr>
-        <th>Rank</th>
-        <th>Bot</th>
-        <th>Win Percentage</th>
-      </tr>
-      {leaderboard.map((entry: Bot) => (
+    <div>
+      <h1 id="title">Leaderboard</h1>
+      <table>
         <tr>
-          <td> {entry.rank} </td>
-          <td> {entry.name} </td>
-          <td> {entry.winPercentage} </td>
+          <th>Rank</th>
+          <th>Bot</th>
+          <th>Win Percentage</th>
         </tr>
-      ))}
-    </table>
+        {leaderboard.map((entry: Bot) => (
+          <tr>
+            <td> {entry.rank} </td>
+            <td> {entry.name} </td>
+            <td> {entry.winPercentage} </td>
+          </tr>
+        ))}
+      </table>
+    </div>
   );
 };
 

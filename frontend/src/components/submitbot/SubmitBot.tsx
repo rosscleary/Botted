@@ -94,21 +94,27 @@ const SubmitBot = ({ name }: leaderboardProps) => {
 
   return (
     <form id="submitForm" onSubmit={handleSubmit}>
-        <FormControl size="small" sx={{ minWidth: 100 }} id="versionSelect">
-          <InputLabel>Version</InputLabel>
-          <Select labelId="versionLabel" label="Version" value={version} onChange={handleChange}>
-            <MenuItem value={"1"}>{botName} 1.0</MenuItem>
-            <MenuItem value={"2"}>{botName} 2.0</MenuItem>
-            <MenuItem value={"3"}>{botName} 3.0</MenuItem>
-          </Select>
-        </FormControl>
+      <FormControl size="small" sx={{ minWidth: 100 }} id="versionSelect">
+        <InputLabel>Version</InputLabel>
+        <Select
+          labelId="versionLabel"
+          label="Version"
+          value={version}
+          onChange={handleChange}
+        >
+          <MenuItem value={"1"}>{botName} 1.0</MenuItem>
+          <MenuItem value={"2"}>{botName} 2.0</MenuItem>
+          <MenuItem value={"3"}>{botName} 3.0</MenuItem>
+        </Select>
+      </FormControl>
       <div id="textArea">
+        <textarea id="lineCounter"/>
         <textarea
           id="textField"
           value={code}
           onChange={(e) => setCode(e.target.value)}
           placeholder="Type code here..."
-        ></textarea>
+        />
         {!botCode && (
           <textarea
             id="textField"
