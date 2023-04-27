@@ -85,46 +85,49 @@ const SubmitBot = ({ name }: leaderboardProps) => {
       });
   };
 
-  const [version, setVersion] = useState("1");
+  const [language, setLanguage] = useState("1");
 
   const handleChange = (event: SelectChangeEvent) => {
-    setVersion(event.target.value as string);
-    //setCode(botCode[0].sourceCode);
+    setLanguage(event.target.value as string);
   };
 
   return (
     <form id="submitForm" onSubmit={handleSubmit}>
-      <FormControl size="small" sx={{ minWidth: 100 }} id="versionSelect">
-        <InputLabel>Version</InputLabel>
+      <FormControl size="small" sx={{ minWidth: 100 }} id="languageSelect">
+        <InputLabel>Language</InputLabel>
         <Select
-          labelId="versionLabel"
-          label="Version"
-          value={version}
+          labelId="languageLabel"
+          label="Language"
+          value={language}
           onChange={handleChange}
         >
-          <MenuItem value={"1"}>{botName} 1.0</MenuItem>
-          <MenuItem value={"2"}>{botName} 2.0</MenuItem>
-          <MenuItem value={"3"}>{botName} 3.0</MenuItem>
+          <MenuItem value={"1"}>C++</MenuItem>
+          <MenuItem value={"2"}>Python</MenuItem>
+          <MenuItem value={"3"}>Java</MenuItem>
         </Select>
       </FormControl>
       <div id="textArea">
-        <textarea id="lineCounter"/>
+        <textarea id="lineCounter" />
         <textarea
           id="textField"
           value={code}
           onChange={(e) => setCode(e.target.value)}
           placeholder="Type code here..."
         />
-        {!botCode && (
+        {/* {!botCode && (
           <textarea
             id="textField"
             value={botName}
             onChange={(e) => setBotName(e.target.value)}
             placeholder="This is you first submission, give your bot a name."
           ></textarea>
-        )}
+        )} */}
       </div>
-      <Button id="submitButton" variant="contained" type="submit">
+      <Button
+        id="submitButton"
+        variant="contained"
+        type="submit"
+      >
         {botCode ? "Update Bot" : "Submit Bot"}
       </Button>
     </form>

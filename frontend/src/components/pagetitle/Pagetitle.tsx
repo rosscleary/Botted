@@ -5,11 +5,10 @@ interface titleProps {
   desc: string;
 }
 
-const Pagetitle = ({ title, desc }: titleProps) => {
+const Pagetitle = ({ title}: titleProps) => {
   return (
     <div>
       <h1 className="title">{title}</h1>
-      <h2 className="desc">{desc}</h2>
     </div>
   );
 };

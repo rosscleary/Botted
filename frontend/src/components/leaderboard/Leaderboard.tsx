@@ -2,6 +2,14 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Bot } from "../../../../backend/src/models/bot.model";
 import "./Leaderboard.css";
+import {
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  TableContainer,
+} from "@mui/material";
 
 interface leaderboardProps {
   name: string;
@@ -33,21 +41,53 @@ const Leaderboard = ({ name }: leaderboardProps) => {
 
   return (
     <div>
-      <h1 id="title">Leaderboard</h1>
-      <table>
-        <tr>
-          <th>Rank</th>
-          <th>Bot</th>
-          <th>Win Percentage</th>
-        </tr>
-        {leaderboard.map((entry: Bot) => (
-          <tr>
-            <td> {entry.rank} </td>
-            <td> {entry.name} </td>
-            <td> {entry.winPercentage} </td>
-          </tr>
-        ))}
-      </table>
+      <TableContainer sx={{ width: 700, maxHeight: 600, overlowX: "hidden" }}>
+        <Table stickyHeader sx={{ width: "100%", mt: 1 }}>
+          <TableHead>
+            <TableRow>
+              <TableCell
+                className="cell"
+                sx={{
+                  background: "#d63230",
+                  color: "white",
+                  fontWeight: "bold",
+                }}
+              >
+                Rank
+              </TableCell>
+              <TableCell
+                className="cell"
+                sx={{
+                  background: "#d63230",
+                  color: "white",
+                  fontWeight: "bold",
+                }}
+              >
+                Bot
+              </TableCell>
+              <TableCell
+                className="cell"
+                sx={{
+                  background: "#d63230",
+                  color: "white",
+                  fontWeight: "bold",
+                }}
+              >
+                Win Percentage
+              </TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {leaderboard.map((entry: Bot) => (
+              <TableRow>
+                <TableCell> {entry.rank} </TableCell>
+                <TableCell> {entry.name} </TableCell>
+                <TableCell> {entry.winPercentage} </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
 };
