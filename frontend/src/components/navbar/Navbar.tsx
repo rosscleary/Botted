@@ -40,7 +40,7 @@ const Navbar = () => {
     <div className="navbar">
       <div>
         <Link to="/">
-          <span className="logo">botted</span>
+          <span className="logo">Botted</span>
         </Link>
       </div>
       <div className="buttons">
