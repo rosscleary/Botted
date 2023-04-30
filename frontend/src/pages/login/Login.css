@@ -1,0 +1,37 @@
+#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: right;
+  text-align: left;
+}
+
+#login-paper {
+  width: 25%;
+  text-align: center;
+  margin: auto;
+  margin-top: 5%;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.login-inputs {
+  width: 100%;
+}
+
+#login-button {
+  width: 100%;
+}
+
+#forgot-password {
+  float: right;
+}
+
+#login-register-button {
+  float: left;
+}
+
+#wrong-credentials {
+  justify-self: left;
+  color: red;
+}

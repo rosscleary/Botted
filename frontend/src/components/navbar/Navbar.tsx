@@ -20,7 +20,6 @@ const Navbar = () => {
           id: getToken(),
         })
         .then(function (response) {
-          console.log("Testing " + response.data.user.username);
           setUsername(response.data.user.username);
         })
         .catch(function () {
@@ -40,7 +39,7 @@ const Navbar = () => {
     <div className="navbar">
       <div>
         <Link to="/">
-          <span className="logo">botted</span>
+          <span className="logo">Botted</span>
         </Link>
       </div>
       <div className="buttons">
@@ -56,7 +55,7 @@ const Navbar = () => {
         )}
         {getToken() && <span className="username"> {username} </span>}
         {getToken() && (
-          <Button id="logoutButton" variant="contained" onClick={logout}>
+          <Button id="logoutButton" variant="contained" onClick={logout} href="/">
             {" "}
             Logout{" "}
           </Button>

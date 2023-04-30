@@ -41,14 +41,14 @@ const Leaderboard = ({ name }: leaderboardProps) => {
 
   return (
     <div>
-      <TableContainer sx={{ width: 700, maxHeight: 600, overlowX: "hidden" }}>
+      <TableContainer sx={{ width: 700, maxHeight: 600}}>
         <Table stickyHeader sx={{ width: "100%", mt: 1 }}>
           <TableHead>
-            <TableRow>
+            <TableRow className="head">
               <TableCell
                 className="cell"
                 sx={{
-                  background: "#d63230",
+                  background: "#E6002B",
                   color: "white",
                   fontWeight: "bold",
                 }}
@@ -58,7 +58,7 @@ const Leaderboard = ({ name }: leaderboardProps) => {
               <TableCell
                 className="cell"
                 sx={{
-                  background: "#d63230",
+                  background: "#E6002B",
                   color: "white",
                   fontWeight: "bold",
                 }}
@@ -68,7 +68,7 @@ const Leaderboard = ({ name }: leaderboardProps) => {
               <TableCell
                 className="cell"
                 sx={{
-                  background: "#d63230",
+                  background: "#E6002B",
                   color: "white",
                   fontWeight: "bold",
                 }}

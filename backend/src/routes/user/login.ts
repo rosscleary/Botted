@@ -6,7 +6,7 @@ const login = async (req: Request, res: Response): Promise<void> => {
 
   const user = await userModel.findOne({ username: username });
   if (!user || user.password != password) {
-    res.status(400).json({ message: 'Invalid username and password' });
+    res.status(400).json({ message: 'Invalid username or password' });
     return;
   }
 

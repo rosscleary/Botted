@@ -21,7 +21,11 @@ const Game = ({ name, description }: gameProps) => {
   return (
     <div>
       <Pagetitle title={name} desc={description} />
-      {!getToken() && <h3>Login to submit</h3>}
+      {!getToken() && (
+        <h3>
+          <a href="\login">Login</a> to submit
+        </h3>
+      )}
       <div className="tabs">
         <Tabs
           value={value}
