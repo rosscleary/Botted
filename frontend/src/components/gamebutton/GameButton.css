@@ -1,0 +1,10 @@
+.gameButton {
+  display: "flex";
+  flex-direction: "column";
+  background: black;
+}
+
+.gameImage {
+  margin-top: 10%;
+  margin-bottom: 15%;
+}

@@ -5,7 +5,7 @@ interface titleProps {
   desc: string;
 }
 
-const Pagetitle = ({ title}: titleProps) => {
+const Pagetitle = ({ title }: titleProps) => {
   return (
     <div>
       <h1 className="title">{title}</h1>
