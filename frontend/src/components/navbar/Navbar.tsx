@@ -37,11 +37,10 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <div>
         <Link to="/">
+          <img className="icon" src="https://icones.pro/wp-content/uploads/2022/10/icone-robot-rouge.png"></img>
           <span className="logo">Botted</span>
         </Link>
-      </div>
       <div className="buttons">
         {!getToken() && (
           <Button id="login" href="/login">
