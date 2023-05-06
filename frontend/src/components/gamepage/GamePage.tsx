@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SubmitBot from "../submitbot/SubmitBot";
 import Leaderboard from "../leaderboard/Leaderboard";
+import Submissions from "../submissions/Submissions";
 import useToken from "../../useToken";
 import Pagetitle from "../pagetitle/Pagetitle";
 import "./GamePage.css";
@@ -42,7 +43,7 @@ const Game = ({ name, description }: gameProps) => {
       <div className="gamePage">
         {value === 0 && <h2>{description}</h2>}
         {value === 1 && <Leaderboard name="tictactoe" />}
-        {value === 2 && <h2>{description}</h2>}
+        {value === 2 && <Submissions name="tictactoe" />}
 
         {getToken() && <SubmitBot name="tictactoe" />}
       </div>

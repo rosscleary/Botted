@@ -1,0 +1,15 @@
+th,
+td {
+  text-align: left;
+  padding: 6px;
+  border: 1px solid #ccc;
+}
+
+table {
+  width: 700px;
+}
+
+#title {
+  text-align: center;
+  margin-bottom: 5px;
+}

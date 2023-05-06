@@ -18,7 +18,6 @@ interface leaderboardProps {
 
 const SubmitBot = ({ name }: leaderboardProps) => {
   const [code, setCode] = useState("");
-  const [botName, setBotName] = useState("");
   const [botCode, setBotCode] = useState<Version[]>();
   const { getToken } = useToken();
 
@@ -49,7 +48,6 @@ const SubmitBot = ({ name }: leaderboardProps) => {
     if (!botCode) {
       await axios
         .post("http://localhost:3001/api/game/createGameBot", {
-          botName: botName,
           userId: getToken(),
           gameName: name,
         })
@@ -102,32 +100,24 @@ const SubmitBot = ({ name }: leaderboardProps) => {
           onChange={handleChange}
         >
           <MenuItem value={"1"}>C++</MenuItem>
-          <MenuItem value={"2"}>Python</MenuItem>
-          <MenuItem value={"3"}>Java</MenuItem>
+          <MenuItem disabled value={"2"}>
+            Python
+          </MenuItem>
+          <MenuItem disabled value={"3"}>
+            Java
+          </MenuItem>
         </Select>
       </FormControl>
       <div id="textArea">
-        <textarea id="lineCounter" />
+        {/* <textarea id="lineCounter"></textarea> */}
         <textarea
           id="textField"
           value={code}
           onChange={(e) => setCode(e.target.value)}
           placeholder="Type code here..."
         />
-        {/* {!botCode && (
-          <textarea
-            id="textField"
-            value={botName}
-            onChange={(e) => setBotName(e.target.value)}
-            placeholder="This is you first submission, give your bot a name."
-          ></textarea>
-        )} */}
       </div>
-      <Button
-        id="submitButton"
-        variant="contained"
-        type="submit"
-      >
+      <Button id="submitButton" variant="contained" type="submit">
         {botCode ? "Update Bot" : "Submit Bot"}
       </Button>
     </form>
