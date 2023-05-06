@@ -7,7 +7,6 @@ import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
-import TicTacToe from "./pages/TicTacToe";
 
 import useToken from "./useToken";
 

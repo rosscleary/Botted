@@ -3,6 +3,8 @@ import GameButton from "../components/gamebutton/GameButton";
 import { Grid } from "@mui/material";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Routes, Route } from "react-router-dom";
+import GamePage from "../components/gamepage/GamePage";
 
 const Home = () => {
   const [gamesList, setGamesList] = useState([]);
@@ -36,6 +38,11 @@ const Home = () => {
           </Grid>
         ))}
       </Grid>
+      <Routes>
+        {gamesList.map((game: any) => (
+          <Route path={"/" + game.name} element={<GamePage game={game} />} />
+        ))}
+      </Routes>
     </div>
   );
 };

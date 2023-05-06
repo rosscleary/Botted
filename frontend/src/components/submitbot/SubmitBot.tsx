@@ -12,13 +12,12 @@ import {
 } from "@mui/material";
 import { SelectChangeEvent } from "@mui/material/Select";
 
-interface leaderboardProps {
-  name: string;
+interface SubmitBotProps {
+  gameId: string;
 }
 
-const SubmitBot = ({ name }: leaderboardProps) => {
+const SubmitBot = (submitBotProps: SubmitBotProps) => {
   const [code, setCode] = useState("");
-  const [botName, setBotName] = useState("");
   const [botCode, setBotCode] = useState<Version[]>();
   const { getToken } = useToken();
 
@@ -26,7 +25,7 @@ const SubmitBot = ({ name }: leaderboardProps) => {
     const setBotCodeValue = async () => {
       await axios
         .post("http://localhost:3001/api/game/getGameBotVersionsByUserId", {
-          gameName: name,
+          gameId: submitBotProps.gameId,
           userId: getToken(),
         })
         .then(function (response) {
@@ -42,43 +41,12 @@ const SubmitBot = ({ name }: leaderboardProps) => {
   }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    console.log("Submitted");
     e.preventDefault();
-
-    let botId = "";
-    if (!botCode) {
-      await axios
-        .post("http://localhost:3001/api/game/createGameBot", {
-          botName: botName,
-          userId: getToken(),
-          gameName: name,
-        })
-        .then(function (response) {
-          botId = response.data.bot._id;
-        })
-        .catch(function () {
-          return "Failed new bot";
-        });
-    } else {
-      await axios
-        .post("http://localhost:3001/api/game/getGameBotByUserId", {
-          gameName: name,
-          userId: getToken(),
-        })
-        .then(function (response) {
-          botId = response.data.bot._id;
-        })
-        .catch(function () {
-          return "Failed to find bot";
-        });
-    }
-
-    console.log("Id is " + botId);
     await axios
-      .post("http://localhost:3001/api/game/updateGameBot/tictactoe", {
-        botId: botId,
-        language: "c++",
-        sourceCode: code,
+      .post("http://localhost:3001/api/game/updateGameBot", {
+        userId: getToken(),
+        gameId: submitBotProps.gameId,
+        botCode: code,
       })
       .catch(function () {
         return "Failed to update bot";

@@ -12,17 +12,17 @@ import {
 } from "@mui/material";
 
 interface leaderboardProps {
-  name: string;
+  gameId: string;
 }
 
-const Leaderboard = ({ name }: leaderboardProps) => {
+const Leaderboard = (leaderboardProps: leaderboardProps) => {
   const [leaderboard, setLeaderboard] = useState([]);
 
   useEffect(() => {
     const setLeaderboardCall = async () => {
       await axios
         .post("http://localhost:3001/api/game/getGameBots", {
-          gameName: name,
+          gameId: leaderboardProps.gameId,
         })
         .then(function (response) {
           setLeaderboard(
