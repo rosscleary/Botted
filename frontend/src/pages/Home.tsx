@@ -1,48 +1,48 @@
 import Pagetitle from "../components/pagetitle/Pagetitle";
 import GameButton from "../components/gamebutton/GameButton";
 import { Grid } from "@mui/material";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { Routes, Route } from "react-router-dom";
+import GamePage from "../components/gamepage/GamePage";
 
 const Home = () => {
+  const [gamesList, setGamesList] = useState([]);
+
+  useEffect(() => { 
+    const getGames = async () => {
+      const gamesList = await axios.post("http://localhost:3001/api/game/getGames", {})
+        .then(function (response) {
+          setGamesList(response.data.games)
+        })
+        .catch(function () {
+          return "Failed get games";
+        });
+    };
+
+    getGames();
+
+  }, []);
+
   return (
     <div className="home">
       <Pagetitle title="Games" desc="" />
       <Grid container spacing={2} columns={6}>
-        <Grid item xs={1}>
-          <GameButton
-            name="Tic-Tac-Toe"
-            image="https://cdn-icons-png.flaticon.com/512/3367/3367478.png"
-            link="\tictactoe"
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <GameButton
-            name="Battleship"
-            image="https://cdn-icons-png.flaticon.com/512/3367/3367430.png"
-            link="\tictactoe"
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <GameButton
-            name="Mancala"
-            image="https://cdn-icons-png.flaticon.com/512/3367/3367626.png"
-            link="\tictactoe"
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <GameButton
-            name="Four in a Row"
-            image="https://cdn-icons-png.flaticon.com/512/3367/3367465.png"
-            link="\tictactoe"
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <GameButton
-            name="Five in a Row"
-            image="https://cdn-icons-png.flaticon.com/512/3367/3367671.png"
-            link="\tictactoe"
-          />
-        </Grid>
+        {gamesList.map((game: any) => (
+          <Grid item xs={1}>
+            <GameButton
+              name={game.name}
+              image={game.icon}
+              link={"/" + game.name}
+            />
+          </Grid>
+        ))}
       </Grid>
+      <Routes>
+        {gamesList.map((game: any) => (
+          <Route path={"/" + game.name} element={<GamePage game={game} />} />
+        ))}
+      </Routes>
     </div>
   );
 };

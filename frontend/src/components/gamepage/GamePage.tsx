@@ -7,12 +7,20 @@ import Pagetitle from "../pagetitle/Pagetitle";
 import "./GamePage.css";
 import { Tabs, Tab } from "@mui/material";
 
-interface gameProps {
-  name: string;
-  description: string;
+interface Game {
+  _id: string,
+  name: string,
+  controller: string,
+  startState: string,
+  description: string,
+  icon: string
 }
 
-const Game = ({ name, description }: gameProps) => {
+interface GameProps {
+  game: Game
+}
+
+const Game = (gameProps: GameProps) => {
   const { getToken } = useToken();
   const [value, setValue] = useState(0);
 
@@ -21,7 +29,7 @@ const Game = ({ name, description }: gameProps) => {
   };
   return (
     <div>
-      <Pagetitle title={name} desc={description} />
+      <Pagetitle title={gameProps.game.name} desc={gameProps.game.description} />
       {!getToken() && (
         <h3>
           <a href="\login">Login</a> to submit
@@ -41,11 +49,11 @@ const Game = ({ name, description }: gameProps) => {
         </Tabs>
       </div>
       <div className="gamePage">
-        {value === 0 && <h2>{description}</h2>}
-        {value === 1 && <Leaderboard name="tictactoe" />}
-        {value === 2 && <Submissions name="tictactoe" />}
+        {value === 0 && <h2>{gameProps.game.description}</h2>}
+        {value === 1 && <Leaderboard gameId={gameProps.game._id} />}
+        {value === 2 && <h2>{gameProps.game.description}</h2>}
 
-        {getToken() && <SubmitBot name="tictactoe" />}
+        {getToken() && <SubmitBot gameId={gameProps.game._id} />}
       </div>
     </div>
   );

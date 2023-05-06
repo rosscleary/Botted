@@ -3,14 +3,14 @@ import versionModel, { Version } from '../../models/version.model';
 import botModel from '../../models/bot.model';
 
 const getGameBotVersionsByUserId = async (req: Request, res: Response): Promise<void> => {
-    const { gameName, userId } = req.body;
+    const { gameId, userId } = req.body;
 
-    if (typeof gameName != 'string' || typeof userId != 'string') {
+    if (typeof gameId != 'string' || typeof userId != 'string') {
         res.status(400).json({ error: 'Validation failed, variable types are incorrect.' });
         return;
     }
 
-    const bot = await botModel.findOne({ game: gameName, user: userId });
+    const bot = await botModel.findOne({ game: gameId, user: userId });
     if (!bot) {
         res.status(400).json({ error: 'No bot with given user id and game' });
         return;
