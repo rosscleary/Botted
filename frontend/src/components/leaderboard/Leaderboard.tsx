@@ -81,7 +81,6 @@ const Leaderboard = ({ name }: leaderboardProps) => {
             {leaderboard.map((entry: Bot) => (
               <TableRow>
                 <TableCell> {entry.rank} </TableCell>
-                <TableCell> {entry.name} </TableCell>
                 <TableCell> {entry.winPercentage} </TableCell>
               </TableRow>
             ))}

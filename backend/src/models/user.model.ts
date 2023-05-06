@@ -1,5 +1,4 @@
 import { Schema, model, Types } from 'mongoose';
-import { Bot } from './bot.model';
 
 export interface User {
   username: string;
