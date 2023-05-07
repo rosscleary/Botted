@@ -7,6 +7,7 @@ import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
+import CreateGame from "./pages/creategame/CreateGame";
 
 import useToken from "./useToken";
 
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login setToken={setToken} />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/creategame" element={<CreateGame />} />
         </Routes>
       </Router>
     </ThemeProvider>

@@ -91,7 +91,6 @@ const Submissions = ({ name }: submissionProps) => {
             {submissions.map((entry: Bot) => (
               <TableRow>
                 <TableCell> {entry.rank} </TableCell>
-                <TableCell> {entry.name} </TableCell>
                 <TableCell> {entry.winPercentage} </TableCell>
                 <TableCell> View </TableCell>
               </TableRow>
