@@ -36,6 +36,7 @@ const Navbar = () => {
 
   const logout = () => {
     setToken("");
+    navigation("/");
   };
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -45,21 +46,25 @@ const Navbar = () => {
 
   const handleMenu = (index: number) => {
     setOpen(false);
-    if(index == 1){
-      navigation("/");
+    if (index === 1) {
+      navigation("/user/" + username);
     }
-    if(index == 2){
+    if (index === 2) {
       navigation("/creategame");
     }
-  }
+    if (index === 3) {
+      logout();
+    }
+  };
 
   return (
     <div className="navbar">
       <Link to="/">
-        <img
+        {/* <img
           className="icon"
           src="https://icones.pro/wp-content/uploads/2022/10/icone-robot-rouge.png"
-        ></img>
+          alt="logo"
+        ></img> */}
         <span className="logo">Botted</span>
       </Link>
       <div className="buttons">
@@ -75,13 +80,32 @@ const Navbar = () => {
         )}
         {getToken() && (
           <>
-            <Button className="username" onClick={handleClick} size="large" sx={{color: "white"}}>
+            <Button
+              variant="contained"
+              onClick={handleClick}
+              sx={{marginRight: "5px"}}
+            >
               {username}
             </Button>
-            <Menu open={open} anchorEl={anchorEl} onClose={handleClick}>
-              <MenuItem value={1} onClick={() => handleMenu(1)}>Profile</MenuItem>
-              <MenuItem value={2} onClick={() => handleMenu(2)}>Create a Game</MenuItem>
-              <MenuItem value={3} onClick={logout}>Logout</MenuItem>
+            <Menu
+              className="menu"
+              open={open}
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "right",
+              }}
+              onClose={handleClick}
+            >
+              <MenuItem value={1} onClick={() => handleMenu(1)}>
+                Profile
+              </MenuItem>
+              <MenuItem value={2} onClick={() => handleMenu(2)}>
+                Create a Game
+              </MenuItem>
+              <MenuItem value={3} onClick={() => handleMenu(3)}>
+                Logout
+              </MenuItem>
             </Menu>
           </>
         )}

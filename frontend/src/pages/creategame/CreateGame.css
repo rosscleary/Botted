@@ -1,0 +1,29 @@
+.MuiStep-root {
+  .MuiStepLabel-root {
+    color: #e6002b;
+    font-weight: bold;
+  }
+  .MuiStepLabel-root .Mui-active {
+    color: #e6002b;
+    font-weight: bold;
+  }
+  .MuiStepLabel-root .Mui-completed {
+    color: #e6002b;
+    font-weight: bold;
+  }
+}
+
+.createGameForm {
+  margin: 1%;
+}
+
+.stepButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.pageThree{
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React, { useEffect } from 'react';
 
 import { createTheme, ThemeProvider } from "@mui/material"
 
@@ -31,6 +30,7 @@ const App = () => {
           <Route path="/login" element={<Login setToken={setToken} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/creategame" element={<CreateGame />} />
+          <Route path="/user/Evan" element={<h1>my name is evan ballast i like running and coding please follow me on devpost</h1>} />
         </Routes>
       </Router>
     </ThemeProvider>

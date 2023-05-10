@@ -18,7 +18,7 @@ const GameButton = ({ name, image, link }: gameButtonProps) => {
         display: "flex",
         flexDirection: "column",
         background: "black",
-        height: "100%",
+        "&:hover": { background: "#E6002B" },
       }}
     >
       <img className="gameImage" src={image} width="100%" alt={name} />

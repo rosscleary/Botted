@@ -23,10 +23,6 @@
   align-self: center;
 }
 
-.username {
-  color: white;
-}
-
 #login {
   color: white;
 }
@@ -38,3 +34,11 @@ a {
 #logoutButton {
   color: white;
 }
+
+.menu{
+  .MuiPaper-root {
+    background-color: #E6002B;
+    color: white;
+  };
+}
+
