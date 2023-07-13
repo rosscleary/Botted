@@ -33,7 +33,7 @@ const SubmitBot = (submitBotProps: SubmitBotProps) => {
           setCode(response.data.versions[0].sourceCode);
         })
         .catch(function () {
-          return "Failed get leaderboard";
+          return "Failed get previous submission";
         });
     };
 
