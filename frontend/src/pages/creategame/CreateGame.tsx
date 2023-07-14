@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useToken from "../../useToken";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import {
   Button,
@@ -24,6 +25,7 @@ const CreateGame = () => {
     iconURL: "",
     sampleBot: "",
   });
+  const navigation = useNavigate();
 
   const changeName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, name: event.target.value });
@@ -60,8 +62,7 @@ const CreateGame = () => {
         icon: formData.iconURL,
       })
       .then(function (response) {
-        console.log(response.data);
-        window.location.href = "/";
+        navigation("/")
       })
       .catch(function () {
         return "Failed to create game";

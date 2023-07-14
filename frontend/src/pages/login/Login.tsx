@@ -75,7 +75,7 @@ const Login = ({ setToken }: loginProps) => {
         <Button id="login-register-button" href="/register">
           Register
         </Button>
-        <Button id="forgot-password">Forgot Password?</Button>
+        <Button id="forgot-password" href="/forgotpassword">Forgot Password?</Button>
       </Paper>
     </div>
   );
