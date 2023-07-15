@@ -33,16 +33,11 @@ const Home = () => {
             <GameButton
               name={game.name}
               image={game.icon}
-              link={"/" + game.name}
+              link={"/" + game.name.split(' ').join('-')}
             />
           </Grid>
         ))}
       </Grid>
-      <Routes>
-        {gamesList.map((game: any) => (
-          <Route path={"/" + game.name} element={<GamePage game={game} />} />
-        ))}
-      </Routes>
     </div>
   );
 };
