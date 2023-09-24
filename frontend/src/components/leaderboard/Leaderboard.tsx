@@ -20,14 +20,16 @@ const Leaderboard = (leaderboardProps: leaderboardProps) => {
 
   useEffect(() => {
     const setLeaderboardCall = async () => {
+      console.log(leaderboardProps.gameId);
       await axios
         .post("http://localhost:3001/api/game/getGameBots", {
           gameId: leaderboardProps.gameId,
         })
         .then(function (response) {
+          console.log(response);
           setLeaderboard(
             response.data.bots.sort(
-              (bot1: Bot, bot2: Bot) => bot1.rank - bot2.rank
+              (bot1: Bot, bot2: Bot) => bot2.rank - bot1.rank
             )
           );
         })
@@ -63,7 +65,7 @@ const Leaderboard = (leaderboardProps: leaderboardProps) => {
                   fontWeight: "bold",
                 }}
               >
-                Bot
+                User
               </TableCell>
               <TableCell
                 className="cell"
@@ -73,14 +75,15 @@ const Leaderboard = (leaderboardProps: leaderboardProps) => {
                   fontWeight: "bold",
                 }}
               >
-                Win Percentage
+                Win +/-
               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {leaderboard.map((entry: Bot) => (
+            {leaderboard.map((entry: Bot, index) => (
               <TableRow>
-                <TableCell> {entry.rank} </TableCell>
+                <TableCell> {index + 1} </TableCell>
+                <TableCell> {String(entry.user)} </TableCell>
                 <TableCell> {entry.winPercentage} </TableCell>
               </TableRow>
             ))}

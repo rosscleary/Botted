@@ -49,8 +49,7 @@ const App = () => {
           <Route path="/login" element={<Login setToken={setToken} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/creategame" element={<CreateGame />} />
-          <Route path="/user/Evan" element={<h1>evan's profile</h1>} />
-          <Route path="/forgotpassword" element={<h1>message wildcorg on discord</h1>} />
+          <Route path="/forgotpassword" element={<h1>You forgot your password</h1>} />
           {gamesList.map((game: any) => (
           <Route path={"/" + game.name.split(' ').join('-')} element={<GamePage game={game} />} />
           ))}
